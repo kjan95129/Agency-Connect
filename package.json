@@ -15,6 +15,6 @@
   },
   "scripts": {
 	"start": "node app",
-	"postinstall": "npm install && bower install && gulp build && gulp default"
+	"postinstall": "bower install && gulp default"
   }
 }
