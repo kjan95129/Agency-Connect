@@ -18,6 +18,6 @@
   },
   "scripts": {
 	"start": "node app",
-	"postinstall": "bower install && gulp default"
+	"postinstall": "gulp default"
   }
 }
