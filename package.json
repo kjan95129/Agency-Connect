@@ -17,8 +17,7 @@
     "gulp-wrap": "^0.11.0"
   },
   "scripts": {
-	"start": "node app",
-	"heroku-postbuild": "gulp"
+	"postinstall": "npm install && bower install && gulp build && gulp"
   }
 }
 	
