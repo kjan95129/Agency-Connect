@@ -21,22 +21,22 @@ function MasterCtrl($scope, $cookieStore, $css) {
     $scope.options = [
         {
             type: 'Billing Inquiries',
-            text: 'Generate a report for billing inquiries',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus vitae enim scelerisque luctus. Mauris purus est, sagittis ut risus et, mollis commodo urna. Integer gravida ante massa, sed gravida est lacinia quis. Praesent id sapien auctor, cursus nisl at, mollis felis. In facilisis dictum tortor, ut porttitor risus elementum in.',
             button_text: 'Generate Report!'
         },
         {
             type: 'Endorsements',
-            text: 'Generate a report for Endorsements',
+            text: 'Etiam hendrerit justo eget quam suscipit, vel finibus urna rutrum. Etiam bibendum, est vel faucibus consequat, velit sapien eleifend lectus, sed tempor leo nisl quis enim. Aenean commodo urna eu nisi finibus laoreet. Suspendisse nec justo ultricies, dapibus neque nec, tempor sem.',
             button_text: 'Endorse policy!'
         },
         {
             type: 'Loss Runs',
-            text: 'Generate a report for Loss Runs',
+            text: 'Aenean convallis faucibus urna, luctus pharetra dolor porttitor eu. Pellentesque a bibendum arcu. Etiam auctor ipsum in posuere tincidunt.',
             button_text: 'Generate Loss Run!'
         },
         {
             type: 'EDocs',
-            text: 'This is the info on EDocs',
+            text: 'Quisque non nunc id felis eleifend porttitor eget in ligula. Vestibulum est nibh, gravida vitae tortor ut, porttitor sodales massa. Vivamus arcu turpis, facilisis efficitur nibh at, mollis tempus ipsum. Quisque rhoncus eros a lacinia pharetra. Etiam porttitor in nisi sed pharetra. Nulla facilisi.',
             button_text: 'Generate EDoc!'
         },
         {
