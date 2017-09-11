@@ -7,10 +7,10 @@
 	<title>Agency Connect</title>
   <!-- STYLES -->
   <!-- build:css lib/css/main.min.css -->
+  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="components/sweetalert2/dist/sweetalert2.min.css">
   <!-- endbuild -->
   <!-- SCRIPTS -->
@@ -38,10 +38,22 @@
         </li>
         <li class="sidebar-title"><span>NAVIGATION</span></li>
         <li class="sidebar-list">
-          <a href="#">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+          <a href="#" data-ng-click="selectedOption = options[4]">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
         </li>
         <li class="sidebar-list">
-          <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
+          <a href="#/tables" data-ng-click="selectedOption = options[5]">Tables <span class="menu-icon fa fa-table"></span></a>
+        </li>
+        <li class="active sidebar-list">
+          <a href="#/search" data-ng-click="selectedOption = options[0]">Billing Inquiries <span class="menu-icon fa fa-question"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#/search" data-ng-click="selectedOption = options[1]">Endorsements <span class="menu-icon fa fa-thumbs-up"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#/search" data-ng-click="selectedOption = options[2]">Loss Runs <span class="menu-icon fa fa-money"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#/search" data-ng-click="selectedOption = options[3]">EDocs <span class="menu-icon fa fa-newspaper-o"></span></a>
         </li>
       </ul>
       <div class="sidebar-footer">
@@ -113,17 +125,17 @@
                   </li>
                   <li class="divider"></li>
                   <li>
-                    <a href="#">Server Down!</a>
+                    <a href="#">Here's a notification</a>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="meta">
               <div class="page">
-                Dashboard
+                {{selectedOption.type}}
               </div>
               <div class="breadcrumb-links">
-                Home / Dashboard
+                Home / {{selectedOption.type}}
               </div>
             </div>
           </div>

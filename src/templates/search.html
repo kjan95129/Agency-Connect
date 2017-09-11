@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-lg-6">
+        <rd-widget>
+            <rd-widget-header icon="fa-tasks" title="Reports"></rd-widget-header>
+
+            <rd-widget-body class="medium">
+                <form class="row padding-top" name="userForm" ng-submit="resetForm()">
+                    <p>{{selectedOption.text}}</p>
+                    <hr>
+                    <div class="col-lg-6">
+                        <label for="searchPolicy">Search by Policy #:</label>
+                        <input type="text" ng-model="user.policyNumber" name="policyNumber" placeholder="Search" class="col-lg-6 form-control input-sm" 
+                                id="searchPolicy" ng-required="!user.name" ng-disabled="user.name" autofocus="autofocus"/>
+                        <p class="bad-field" ng-show="userForm.policyNumber.$invalid && !userForm.policyNumber.$pristine">Please fill out one of the fields</p>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="searchName">Search by Name:</label>
+                        <input type="text" ng-model="user.name" name="name" placeholder="Search" class="col-lg-6 form-control input-sm" 
+                                id="searchName" ng-required="!user.policyNumber" ng-disabled="user.policyNumber"/>
+                        <p class="bad-field" ng-show="userForm.name.$invalid && !userForm.name.$pristine">Please fill out one of the fields</p>
+                    </div>
+
+
+                    <div class="row col-lg-12">
+                        <button type="submit" class="report-button btn btn-sm btn-info col-lg-3" ng-click="confirmationModal(); resetForm(user, userForm)" 
+                        ng-disabled="userForm.policyNumber.$invalid && userForm.name.$invalid">{{selectedOption.button_text}}</button>
+                    </div>
+                    
+                </form>
+            </rd-widget-body>
+        <rd-widget>
+    </div>
+    <div class="col-lg-6">
+        <rd-widget>
+                <rd-widget-header icon="fa-tasks" title="All Policies">
+                <div class="pull-right">
+                    <input type="text" placeholder="Search" class="form-control input-sm" />
+                </div>
+                </rd-widget-header>
+                <rd-widget-body classes="medium no-padding">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr><td>RDVMPC001</td><td>238.103.133.37</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+                            <tr><td>RDVMPC002</td><td>68.66.63.170</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+                            <tr><td>RDVMPC003</td><td>76.117.212.33</td><td><span tooltip="Server Down!" class="text-danger"><i class="fa fa-warning"></i></span></td></tr>
+                            <tr><td>RDPHPC001</td><td>91.88.224.5</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+                            <tr><td>RDESX001</td><td>197.188.15.93</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+                            <tr><td>RDESX002</td><td>168.85.154.251</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+                            <tr><td>RDESX003</td><td>209.25.191.61</td><td><span tooltip="Server Down!" class="text-danger"><i class="fa fa-warning"></i></span></td></tr>
+                            <tr><td>RDESX004</td><td>252.37.192.235</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+                            <tr><td>RDTerminal01</td><td>139.71.18.207</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+                            <tr><td>RDTerminal02</td><td>136.80.122.212</td><td><span tooltip="Could not connect!" class="text-warning"><i class="fa fa-flash"></i></span></td></tr>
+                            <tr><td>RDDomainCont01</td><td>196.80.245.33</td><td><span class="text-success"><i class="fa fa-check"></i></span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+</div>

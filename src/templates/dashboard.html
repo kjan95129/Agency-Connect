@@ -58,46 +58,6 @@
 <div class="row">
 	<div class="col-lg-6">
 		<rd-widget>
-			<rd-widget-header icon="fa-tasks" title="Reports"></rd-widget-header>
-
-			<rd-widget-body class="medium">
-				<div class="form-inline">
-					<label class="control-label" for="sel1">Select Report Type :</label>
-					<select class="form-control" ng-model="selectedOption" ng-options="option.type for option in options track by option.type" id="sel1"></select>
-				</div>
-				<br>
-				<div>
-					<p ng-model="selectedOption.text">{{selectedOption.text}}</p>
-				</div>
-				<hr>
-
-				<div class="row">
-					<div class="col-lg-6">
-						<label for="searchPolicy">Search by Policy #:</label>
-						<input type="text" placeholder="Search" class="col-lg-6 form-control input-sm" id="searchPolicy" />
-					</div>
-
-					<div class="col-lg-6">
-						<label for="searchName">Search by Name:</label>
-						<input type="text" placeholder="Search" class="col-lg-6 form-control input-sm" id="searchName" />
-					</div>
-				</div>
-
-				<br>
-				
-				<div class="row">
-					<button class="btn btn-sm btn-info col-lg-3" ng-click="confirmationModal()">Generate Report!</button>
-				</div>
-
-
-			</rd-widget-body>
-		<rd-widget>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-lg-6">
-		<rd-widget>
       		<rd-widget-header icon="fa-tasks" title="Policies">
 				<div class="pull-right">
 					<input type="text" placeholder="Search" class="form-control input-sm" />

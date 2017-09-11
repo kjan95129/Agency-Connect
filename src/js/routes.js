@@ -13,11 +13,18 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('index', {
                 url: '/',
-                templateUrl: 'templates/dashboard.html'
+                templateUrl: 'templates/dashboard.html',
+                css: 'C:\Users\kjan\Documents\agencyConnect\src\css\style.css'
             })
             .state('tables', {
                 url: '/tables',
-                templateUrl: 'templates/tables.html'
+                templateUrl: 'templates/tables.html',
+                css: 'C:\Users\kjan\Documents\agencyConnect\src\css\style.css'
+            })
+            .state('search', {
+                url: '/search',
+                templateUrl: 'templates/search.html',
+                css: 'C:\Users\kjan\Documents\agencyConnect\src\css\style.css'
             });
     }
 ]);
