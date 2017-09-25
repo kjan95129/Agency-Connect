@@ -1,15 +1,24 @@
 /**
  * Master Controller
  */
+function openLink(link) {
+    window.open(link, "", "width=700,height=500");
+}
+
 
 angular.module('RDash')
-    .controller('MasterCtrl', ['$scope', '$cookieStore', MasterCtrl]);
+    .controller('MasterCtrl', ['$scope', '$http', '$cookieStore', '$location', '$timeout', MasterCtrl]);
 
-function MasterCtrl($scope, $cookieStore, $css) {
+function MasterCtrl($scope, $http, $cookieStore, $location, $timeout) {
     /**
      * Sidebar Toggle & Cookie Control
      */
     var mobileView = 992;
+
+    $http.get('https://jsonplaceholder.typicode.com/users').
+    then(function(response) {
+        $scope.user = response.data;
+    });
 
     $scope.currSearchCriteria = {
         name: "",
@@ -87,6 +96,30 @@ function MasterCtrl($scope, $cookieStore, $css) {
         userForm.$setPristine();
         userForm.$setUntouched();
     };
+
+    $scope.load = function(){
+        angular.element(document.querySelector('#page-wrapper')).addClass('open');
+        angular.element(document.querySelector('#sidebar-wrapper')).removeClass('no-display');
+        angular.element(document.querySelector('#header-bar')).removeClass('no-display');
+        $location.path('/dashboard');
+    };
+
+    $scope.login = function(){
+        $scope.dataLoading = true;
+        $timeout($scope.load, 2000);
+    };
+
+    $scope.logout = function(){
+        $scope.dataLoading = false;
+    };
+
+    if(window.location.href.indexOf('login') != -1){
+        angular.element(document.querySelector('#sidebar-wrapper')).addClass('no-display');
+        angular.element(document.querySelector('#header-bar')).addClass('no-display');
+    }else{
+        angular.element(document.querySelector('#sidebar-wrapper')).removeClass('no-display');
+        angular.element(document.querySelector('#header-bar')).removeClass('no-display');
+    }
 
     window.onresize = function() {
         $scope.$apply();

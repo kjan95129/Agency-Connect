@@ -77,7 +77,7 @@ gulp.task('custom-less', function() {
 gulp.task('custom-css', function() {
     return gulp.src(paths.global_style)
         .pipe(less())
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('custom-templates', function() {

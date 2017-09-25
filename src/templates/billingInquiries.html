@@ -5,16 +5,16 @@
 
             <rd-widget-body class="medium">
                 <form class="row padding-top" name="userForm" ng-submit="resetForm()">
-                    <p>{{selectedOption.text}}</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus vitae enim scelerisque luctus. Mauris purus est, sagittis ut risus et, mollis commodo urna. Integer gravida ante massa, sed gravida est lacinia quis. Praesent id sapien auctor, cursus nisl at, mollis felis. In facilisis dictum tortor, ut porttitor risus elementum in.</p>
                     <hr>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <label for="searchPolicy">Search by Policy #:</label>
                         <input type="text" ng-model="user.policyNumber" name="policyNumber" placeholder="Search" class="col-lg-6 form-control input-sm" 
                                 id="searchPolicy" ng-required="!user.name" ng-disabled="user.name" auto-focus/>
                         <p class="bad-field" ng-show="userForm.policyNumber.$invalid && !userForm.policyNumber.$pristine">Please fill out one of the fields</p>
                     </div>
 
-                    <div class="col-lg-6" ng-hide="selectedOption.type === 'Endorsements'">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <label for="searchName">Search by Name:</label>
                         <input type="text" ng-model="user.name" name="name" placeholder="Search" class="col-lg-6 form-control input-sm" 
                                 id="searchName" ng-required="!user.policyNumber" ng-disabled="user.policyNumber"/>
@@ -24,7 +24,7 @@
 
                     <div class="row col-lg-12">
                         <button type="submit" class="report-button btn btn-sm btn-info col-lg-3" ng-click="confirmationModal(); resetForm(user, userForm)" 
-                        ng-disabled="userForm.policyNumber.$invalid && userForm.name.$invalid">{{selectedOption.button_text}}</button>
+                        ng-disabled="userForm.policyNumber.$invalid && userForm.name.$invalid">Generate Report!</button>
                     </div>
                 </form>
             </rd-widget-body>

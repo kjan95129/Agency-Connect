@@ -7,11 +7,11 @@
 	<title>Agency Connect</title>
   <!-- STYLES -->
   <!-- build:css lib/css/main.min.css -->
-  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
   <link rel="stylesheet" type="text/css" href="components/sweetalert2/dist/sweetalert2.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <!-- endbuild -->
   <!-- SCRIPTS -->
   <!-- build:js lib/js/main.min.js -->
@@ -29,7 +29,7 @@
   <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
     <!-- Sidebar -->
-    <div id="sidebar-wrapper">
+    <div id="sidebar-wrapper" class="no-display">
       <ul class="sidebar">
         <li class="sidebar-main">
           <a ng-click="toggleSidebar()">
@@ -39,13 +39,13 @@
         </li>
         <li class="sidebar-title"><span>NAVIGATION</span></li>
         <li class="sidebar-list">
-          <a href="#" data-ng-click="selectedOption = options[4]">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+          <a href="#/dashboard" data-ng-click="selectedOption = options[4]">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
         </li>
         <li class="sidebar-list">
           <a href="#/tables" data-ng-click="selectedOption = options[5]">Tables <span class="menu-icon fa fa-table"></span></a>
         </li>
         <li class="active sidebar-list">
-          <a href="#/search" data-ng-click="selectedOption = options[0]">Billing Inquiries <span class="menu-icon fa fa-question"></span></a>
+          <a data-ng-click="selectedOption = options[0];" onclick="openLink('#/billingInquiries')">Billing Inquiries <span class="menu-icon fa fa-question"></span></a>
         </li>
         <li class="sidebar-list">
           <a href="#/search" data-ng-click="selectedOption = options[1]">Endorsements <span class="menu-icon fa fa-thumbs-up"></span></a>
@@ -81,7 +81,7 @@
       <div class="page-content">
 
         <!-- Header Bar -->
-        <div class="row header">
+        <div class="row header no-display" id="header-bar">
           <div class="col-xs-12">
             <div class="user pull-right">
               <div class="item dropdown" uib-dropdown>
@@ -90,34 +90,35 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class="dropdown-header">
-                    Your name here
+                    ID is: {{user[0].name}} <br>
+                    Content is: {{user[0].email}}
                   </li>
                   <li class="divider"></li>
                   <li class="link">
-                    <a href="#">
+                    <a href="#/dashboard">
                       Profile
                     </a>
                   </li>
                   <li class="link">
-                    <a href="#">
+                    <a href="#/dashboard">
                       First Item
                     </a>
                   </li>
                   <li class="link">
-                    <a href="#">
+                    <a href="#/dashboard">
                       Second Item
                     </a>
                   </li>
                   <li class="divider"></li>
                   <li class="link">
-                    <a href="#">
+                    <a href="#/login" ng-click="logout()">
                       Logout
                     </a>
                   </li>
                 </ul>
               </div>
               <div class="item dropdown" uib-dropdown>
-               <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+               <a href="#/dashboard" class="dropdown-toggle" uib-dropdown-toggle>
                   <i class="fa fa-bell-o"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
@@ -126,7 +127,7 @@
                   </li>
                   <li class="divider"></li>
                   <li>
-                    <a href="#">Here's a notification</a>
+                    <a href="#/dashboard">Here's a notification</a>
                   </li>
                 </ul>
               </div>
