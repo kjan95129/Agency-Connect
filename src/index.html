@@ -13,17 +13,6 @@
   <link rel="stylesheet" type="text/css" href="components/sweetalert2/dist/sweetalert2.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <!-- endbuild -->
-  <!-- SCRIPTS -->
-  <!-- build:js lib/js/main.min.js -->
-  <script type="text/javascript" src="components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script type="text/javascript" src="components/angular-cookies/angular-cookies.min.js"></script>
-  <script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script type="text/javascript" src="components/sweetalert2/dist/sweetalert2.min.js"></script>
-  <script type="text/javascript" src="js/directives/autofocus.js"></script>
-  <!-- endbuild -->
-  <!-- Custom Scripts -->
-  <script type="text/javascript" src="js/dashboard.min.js"></script>
 </head>
 <body ng-controller="MasterCtrl">
   <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
@@ -45,16 +34,16 @@
           <a href="#/tables" data-ng-click="selectedOption = options[5]">Tables <span class="menu-icon fa fa-table"></span></a>
         </li>
         <li class="active sidebar-list">
-          <a data-ng-click="selectedOption = options[0];" onclick="openLink('#/billingInquiries')">Billing Inquiries <span class="menu-icon fa fa-question"></span></a>
+          <a href="#/billingInquiries" data-ng-click="selectedOption = options[0];">Billing Inquiries <span class="menu-icon fa fa-question"></span></a>
         </li>
         <li class="sidebar-list">
-          <a href="#/search" data-ng-click="selectedOption = options[1]">Endorsements <span class="menu-icon fa fa-thumbs-up"></span></a>
+          <a href="#/endorsements" data-ng-click="selectedOption = options[1]">Endorsements <span class="menu-icon fa fa-thumbs-up"></span></a>
         </li>
         <li class="sidebar-list">
-          <a href="#/search" data-ng-click="selectedOption = options[2]">Loss Runs <span class="menu-icon fa fa-money"></span></a>
+          <a href="#/lossRuns" data-ng-click="selectedOption = options[2]">Loss Runs <span class="menu-icon fa fa-money"></span></a>
         </li>
         <li class="sidebar-list">
-          <a href="#/search" data-ng-click="selectedOption = options[3]">EDocs <span class="menu-icon fa fa-newspaper-o"></span></a>
+          <a href="#/eDocs" data-ng-click="selectedOption = options[3]">EDocs <span class="menu-icon fa fa-newspaper-o"></span></a>
         </li>
       </ul>
       <div class="sidebar-footer">
@@ -151,4 +140,16 @@
     </div><!-- End Content Wrapper -->
   </div><!-- End Page Wrapper -->
 </body>
+
+<!-- SCRIPTS -->
+  <!-- build:js lib/js/main.min.js -->
+  <script type="text/javascript" src="components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="components/angular-cookies/angular-cookies.min.js"></script>
+  <script type="text/javascript" src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="components/sweetalert2/dist/sweetalert2.min.js"></script>
+  <!-- endbuild -->
+  <!-- Custom Scripts -->
+  <script type="text/javascript" src="js/dashboard.min.js"></script>
+  
 </html>

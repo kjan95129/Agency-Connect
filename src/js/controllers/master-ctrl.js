@@ -1,10 +1,6 @@
 /**
  * Master Controller
  */
-function openLink(link) {
-    window.open(link, "", "width=700,height=500");
-}
-
 
 angular.module('RDash')
     .controller('MasterCtrl', ['$scope', '$http', '$cookieStore', '$location', '$timeout', MasterCtrl]);

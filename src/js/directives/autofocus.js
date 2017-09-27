@@ -1,14 +1,12 @@
+angular.module('RDash')
 
-angular
-.module('RDash')
-.directive('autoFocus', autoLoad);
-
-
-function autoLoad(){
+.directive('myFocus', ['$timeout', function($timeout) {
     return {
-        restrict: 'AC',
-        link: function(_scope, _element) {
-            _element[0].focus();
-        }
-    };
-};
+      restrict: 'A',
+      link : function($scope, $element) {
+        $timeout(function() {
+          $element[0].focus();
+        });
+      }
+    }
+  }]);
