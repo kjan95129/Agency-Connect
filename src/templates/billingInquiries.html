@@ -1,32 +1,50 @@
 <div class="row">
     <div class="col-lg-6">
         <rd-widget>
-            <rd-widget-header icon="fa-tasks" title="Reports"></rd-widget-header>
+            <rd-widget-header icon="fa-tasks" title="Billing Inquiries"></rd-widget-header>
 
-            <rd-widget-body class="medium">
-                <form class="row padding-top" name="userForm" ng-submit="resetForm()">
+            <rd-widget-body class="large">
+                <form class="row padding-top" name="userForm" ng-submit="resetForm()" ng-hide="submitted">
                     <p>{{selectedOption.text}}</p>
                     <hr>
                     <div class="col-lg-6">
                         <label for="searchPolicy">Search by Policy #:</label>
                         <input type="text" ng-model="user.policyNumber" name="policyNumber" placeholder="Search" class="col-lg-6 form-control input-sm" 
-                                id="searchPolicy" ng-required="!user.name" ng-disabled="user.name" my-focus/>
+                                id="searchPolicy" ng-required="!user.name" my-focus/>
                         <p class="bad-field" ng-show="userForm.policyNumber.$invalid && !userForm.policyNumber.$pristine">Please fill out one of the fields</p>
                     </div>
 
                     <div class="col-lg-6" ng-hide="selectedOption.type === 'Endorsements'">
                         <label for="searchName">Search by Name:</label>
                         <input type="text" ng-model="user.name" name="name" placeholder="Search" class="col-lg-6 form-control input-sm" 
-                                id="searchName" ng-required="!user.policyNumber" ng-disabled="user.policyNumber"/>
+                                id="searchName" ng-required="!user.policyNumber"/>
                         <p class="bad-field" ng-show="userForm.name.$invalid && !userForm.name.$pristine">Please fill out one of the fields</p>
                     </div>
 
 
                     <div class="row col-lg-12">
-                        <button type="submit" class="report-button btn btn-sm btn-info col-lg-3" ng-click="confirmationModal(); resetForm(user, userForm)" 
+                        <button type="submit" class="report-button btn btn-sm btn-info col-lg-3" ng-click="submitted=true; resetForm(user, userForm); findInquiries();" 
                         ng-disabled="userForm.policyNumber.$invalid && userForm.name.$invalid">{{selectedOption.button_text}}</button>
                     </div>
                 </form>
+                
+                <div class="row col-lg-12" ng-show="submitted">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                        </tr>
+
+                        <tr ng-repeat="data in currData">
+                            <td>{{data.name}}</td>
+                            <td>{{data.email}}</td>
+                            <td>{{data.username}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+
             </rd-widget-body>
         <rd-widget>
     </div>

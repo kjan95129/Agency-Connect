@@ -11,23 +11,19 @@ function MasterCtrl($scope, $http, $cookieStore, $location, $timeout) {
      */
     var mobileView = 992;
 
-    $http.get('https://jsonplaceholder.typicode.com/users').
-    then(function(response) {
-        $scope.user = response.data;
-    });
-
     $scope.currSearchCriteria = {
         name: "",
         policy: ""
-    };
+    }
 
-    var defaultSearchCriteria = angular.copy($scope.currSearchCriteria);
+    // if true, then show search results
+    $scope.submitted = false;
 
     $scope.options = [
         {
             type: 'Billing Inquiries',
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rhoncus vitae enim scelerisque luctus. Mauris purus est, sagittis ut risus et, mollis commodo urna. Integer gravida ante massa, sed gravida est lacinia quis. Praesent id sapien auctor, cursus nisl at, mollis felis. In facilisis dictum tortor, ut porttitor risus elementum in.',
-            button_text: 'Generate Report!'
+            button_text: 'Search'
         },
         {
             type: 'Endorsements',
@@ -119,5 +115,25 @@ function MasterCtrl($scope, $http, $cookieStore, $location, $timeout) {
 
     window.onresize = function() {
         $scope.$apply();
+    };
+
+    // Parses search criteria and calls web service
+    // returns json data
+    $scope.findInquiries = function(){
+        // gets current search criteria from input
+        $scope.currSearchCriteria.name = document.getElementById("searchName").value;
+        $scope.currSearchCriteria.policy = document.getElementById("searchPolicy").value;
+
+        // logging for debug purposes
+        console.log($scope.currSearchCriteria.name);
+        console.log($scope.currSearchCriteria.policy);
+
+        console.log(JSON.stringify($scope.currSearchCriteria));
+
+        $http.get('https://jsonplaceholder.typicode.com/users')
+        .then(function (response) {
+            $scope.currData = response.data;
+        });
+
     };
 }
