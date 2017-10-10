@@ -12,8 +12,8 @@ function MasterCtrl($scope, $http, $cookieStore, $location, $timeout) {
     var mobileView = 992;
 
     $scope.currSearchCriteria = {
-        name: "",
-        policy: ""
+        agencyCode: "32000",
+        policyKey: ""
     }
 
     // if true, then show search results
@@ -121,19 +121,19 @@ function MasterCtrl($scope, $http, $cookieStore, $location, $timeout) {
     // returns json data
     $scope.findInquiries = function(){
         // gets current search criteria from input
-        $scope.currSearchCriteria.name = document.getElementById("searchName").value;
-        $scope.currSearchCriteria.policy = document.getElementById("searchPolicy").value;
+        $scope.currSearchCriteria.policyKey = document.getElementById("searchPolicy").value;
 
         // logging for debug purposes
-        console.log($scope.currSearchCriteria.name);
-        console.log($scope.currSearchCriteria.policy);
+        console.log($scope.currSearchCriteria.policyKey);
 
         console.log(JSON.stringify($scope.currSearchCriteria));
 
-        $http.get('https://jsonplaceholder.typicode.com/users')
+        $http.post('http://ussan-peg108995:8080/pei/BillingInquiry/GetBillingData', JSON.stringify($scope.currSearchCriteria))
         .then(function (response) {
             $scope.currData = response.data;
         });
+
+        console.log($scope.currData);
 
     };
 }
